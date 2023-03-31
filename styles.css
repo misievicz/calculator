@@ -24,10 +24,18 @@ body {
     gap: 5px;
 }
 .screen {
+    font-family: 'Press Start 2P', cursive;
+    padding: 0px;
     width: 370px;
     border: dashed 4px black;
     min-height: 100px;
     margin-top: 10px;
+}
+#display-numbers{
+    font-size: xx-large;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
 }
 .buttons {
     display: flex;
@@ -35,7 +43,10 @@ body {
     align-items: center;
 }
 .top2-btns {
-    width: 378px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 3px
 }
 .small-btns {
     margin-top: 3px;
