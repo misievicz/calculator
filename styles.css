@@ -9,12 +9,14 @@ body {
     min-height: 100vh;
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 80px
 }
 .main-calc {
     padding: 3px;
-    border: dashed 4px black;
+    border: solid 6px black;
     width: 400px;
     height: 450px;
     display: flex;
@@ -22,9 +24,18 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 5px;
+    margin-bottom: 40px;
+}
+.title{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
+    color: #ffdc42;
+    margin-left: 30px;
+
 }
 .screen {
     font-family: 'Press Start 2P', cursive;
+    color: #ffdc42;
     padding: 0px;
     width: 370px;
     border: dashed 4px black;
@@ -32,10 +43,12 @@ body {
     margin-top: 10px;
 }
 #display-numbers{
-    font-size: xx-large;
+    font-size: 50px;
     padding: 10px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    height: 77px;
 }
 .buttons {
     display: flex;
@@ -58,7 +71,8 @@ body {
 }
 .operator,
 .number,
-.big-btns{
+.big-btns,
+.equal{
     padding: 10px;
     font-size: large;
     width: 92px;
