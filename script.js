@@ -1,30 +1,44 @@
+// vars
 const screen = document.getElementById("display-numbers");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const equal = document.getElementById('=');
 const AC = document.getElementById('AC');
+const C = document.getElementById("C");
 
 let operA = null;
 let operB = null;
 let numChanger = false;
+let calculation = false;
 let operator = null;
 screen.textContent = '0';
 
+// button-events
 numbers.forEach(function (event) {
     event.addEventListener("click", appendScreen);
 });
+
 operators.forEach(function (event) {
     event.addEventListener("click", () => {
         numChanger = true;
+        if (numChanger == true) makeCalc();
         operator = event.innerHTML;
     });
 });
-equal.addEventListener("click", makeCalc);
-AC.addEventListener("click", resetAll)
+
+equal.addEventListener("click", makeCalcEqual);
+AC.addEventListener("click", resetAll);
+C.addEventListener("click", resetOne);
+
+//functions
 
 function appendScreen(event) {
     if (screen.textContent == '0') {
         screen.textContent = null;
+    }
+    if (calculation == true) {
+        screen.textContent = null;
+        calculation = false;
     }
     if (numChanger == false) {
         screen.append(event.target.innerHTML);
@@ -39,11 +53,6 @@ function appendScreen(event) {
             operB = Number(screen.textContent);
         }
     }
-    
-    console.log(operA);
-    console.log(operB);
-    console.log(numChanger);
-    console.log(operator);
 }
 function makeCalc() {
     if (operB == null) return;
@@ -51,6 +60,15 @@ function makeCalc() {
     screen.textContent = (operate(operA, operB, operator));
     operA = Number(screen.textContent);
     operB = null;
+}
+function makeCalcEqual() {
+    if (operB == null) return;
+    clearScreen();
+    screen.textContent = operate(operA, operB, operator);
+    operA = Number(screen.textContent);
+    operB = null;
+    calculation = true;
+    numChanger = false;
 }
 function clearScreen() {
     screen.textContent = '0';
@@ -62,12 +80,12 @@ function resetAll() {
     numChanger = false;
     operator = null;
 }
-
-add = (a, b) => a + b;
-sub = (a, b) => a - b;
-multi = (a, b) => a * b;
-divide = (a, b) => a / b;
-
+function resetOne() {
+    screen.textContent = screen.textContent.slice(0, -1);
+    if (numChanger == false) operA = Number(screen.textContent);
+    else operB = Number(screen.textContent);
+    console.table(operA, operB);
+}
 function operate(operA, operB, operator) {
     switch (operator) {
         case "+":
@@ -80,3 +98,7 @@ function operate(operA, operB, operator) {
             return divide(operA, operB);
     }
 }
+add = (a, b) => a + b;
+sub = (a, b) => a - b;
+multi = (a, b) => a * b;
+divide = (a, b) => a / b;
