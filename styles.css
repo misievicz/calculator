@@ -14,6 +14,7 @@ body {
     align-items: center;
     gap: 80px
 }
+
 .main-calc {
     padding: 3px;
     border: solid 6px black;
@@ -26,13 +27,15 @@ body {
     gap: 5px;
     margin-bottom: 40px;
 }
-.title{
+
+.title {
     font-family: 'Press Start 2P', cursive;
     font-size: 50px;
     color: #ffdc42;
     margin-left: 30px;
 
 }
+
 .screen {
     font-family: 'Press Start 2P', cursive;
     color: #ffdc42;
@@ -42,25 +45,28 @@ body {
     min-height: 100px;
     margin-top: 10px;
 }
-#display-numbers{
-    font-size: 50px;
+
+#display-numbers {
+    min-height: 80px;
+    font-size: 26px;
     padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 77px;
+    text-align: right;
+    overflow-wrap: break-word;
 }
+
 .buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .top2-btns {
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 3px
 }
+
 .small-btns {
     margin-top: 3px;
     margin-bottom: 10px;
@@ -69,10 +75,12 @@ body {
     justify-content: center;
     gap: 3px;
 }
+
 .operator,
+.decimal,
 .number,
 .big-btns,
-.equal{
+.equal {
     padding: 10px;
     font-size: large;
     width: 92px;
@@ -83,7 +91,19 @@ body {
     color: #ffffff;
     text-align: center;
 }
+
 .big-btns {
     height: 60px;
     width: 187px;
+}
+.bg1 {
+    padding: 10px;
+    font-size: large;
+    width: 92px;
+    height: 60px;
+    font-family: 'Press Start 2P', cursive;
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
 }
